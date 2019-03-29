@@ -45,9 +45,24 @@
 
 ## Usage
 ```javascript
-import RNShareinstall from 'react-native-shareinstall';
+import RNShareinstallModule from 'react-native-shareinstall';
 
-// TODO: What to do with the module?
-RNShareinstall;
+  #该方法用于监听app通过univeral link或scheme拉起后获取唤醒参数
+    this.receiveWakeupListener = map => {
+       if (map) {
+         //do your work here
+       }        
+     Alert.alert('拉起回调',JSON.stringify(map)) 
+    } 
+		RNShareinstallModule.addWakeUpListener(this.receiveWakeupListener) 
+		
+#该方法用于获取安装参数
+ RNShareinstallModule.getInstall(10, map => {
+      if (map) {
+        //do your work here
+      }        
+      Alert.alert('安装回调',JSON.stringify(map))     
+    })
 ```
+
   
