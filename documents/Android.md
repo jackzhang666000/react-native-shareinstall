@@ -55,6 +55,41 @@ your react native project/android/app/AndroidManifest.xml
     </intent-filter>
 </activity>
 
+demo
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.testlib">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="true"
+      android:theme="@style/AppTheme">
+      <meta-data android:name="com.shareinstall.APP_KEY" android:value="${SHAREINSTALL_APPKEY}"/>
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:windowSoftInputMode="adjustResize">
+        
+        <intent-filter>
+            <!-- <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" /> -->
+            <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="pqaq3555"/>
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+    </application>
+
+</manifest>
+
 ```
 
 现在重新 sync 一下项目，应该能看到 react-native-shareinstall作为 android Library 项目导进来了。  
