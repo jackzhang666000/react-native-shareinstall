@@ -34,14 +34,19 @@ public class RNShareinstallModule extends ReactContextBaseJavaModule{
       ShareInstall.getInstance().getInfo(intent, new AppGetInfoListener() {
       @Override
       public void onGetInfoFinish(String appData) {
-        if (appData != null) {
-          Log.d("RNShareinstallModule", "getWakeUp : wakeupData = " + appData);
-          String data = appData;
-          WritableMap params = Arguments.createMap();
-          params.putString("data", data);
-          successBack.invoke(params);
+              try {
+                if (appData != null) {
+                Log.d("RNShareinstallModule", "getWakeUp : wakeupData = " + appData);
+                String data = appData;
+                WritableMap params = Arguments.createMap();
+                params.putString("data", data);
+                successBack.invoke(params);
+                }
+              }catch (Exception e){
+                successBack.invoke(e);
+              }
         } 
-      }
+      
     });
     }
 
@@ -66,9 +71,8 @@ public class RNShareinstallModule extends ReactContextBaseJavaModule{
         @Override
         public void onGetInfoFinish(String appData) {
           try {
-          //Log.d(TAG, "onInstallFinish # " + (appData == null ? "AppData is null" :appData));
           Log.d("Install", "getInstall : data = " + appData);
-          WritableMap params = Arguments.createMap();
+                       WritableMap params = Arguments.createMap();
                         //params.putString("channel",channelCode);
                         params.putString("data",appData);
                         callback.invoke(params);

@@ -17,7 +17,7 @@ android {
     }
 }
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+     implementation fileTree(dir: 'libs', include: ['ShareInstall_1.0.9.aar'])
     implementation project(':react-native-shareinstall')  // 添加 shareinstall 依赖
     implementation "com.facebook.react:react-native:+"  // From node_modules
 }
@@ -32,7 +32,6 @@ project(':react-native-shareinstall').projectDir = new File(rootProject.projectD
 
 ##### 3 检查 app 下的 AndroidManifest 配置
 your react native project/android/app/AndroidManifest.xml
-
 
 在AndroidManifest.xml的application标签内设置AppKey  
 ```
@@ -75,11 +74,12 @@ demo
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
         android:windowSoftInputMode="adjustResize">
-        
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         <intent-filter>
-            <!-- <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" /> -->
-            <action android:name="android.intent.action.VIEW"/>
+        <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="pqaq3555"/>
@@ -104,3 +104,5 @@ package需要在MainApplication.java文件中的getPackages方法中提供。这
     }
 
 ```
+
+使用shareinstall 1.0.9版本请使用API28，API23请使用老版本的使用shareinstall v1.08及之前版本
