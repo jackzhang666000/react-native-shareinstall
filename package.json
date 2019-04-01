@@ -1,6 +1,6 @@
 {
   "name": "react-native-shareinstall",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "shareinstall",
   "main": "index.js",
   "scripts": {
@@ -18,8 +18,8 @@
     "shareinstall",
     "react-native"
   ],
-  "author": "",
-  "license": "",
+  "author": "jack",
+  "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.41.2"
   }
