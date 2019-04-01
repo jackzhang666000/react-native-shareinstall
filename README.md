@@ -18,6 +18,7 @@
 2. Go to `node_modules` ➜ `react-native-shareinstall` and add `RNShareinstall.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNShareinstall.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
+5.ios 功能暂且还没完善，后续会更新，2.0版本会更新完整iOS功能
 
 #### Android
 
